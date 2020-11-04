@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'idea'
+    id 'application'
 	id 'maven-publish'
     id 'com.github.johnrengelman.shadow' version '5.1.0'
 	id 'org.openjfx.javafxplugin' version '0.0.8'
@@ -42,9 +43,13 @@ dependencies {
 	implementation "org.jetbrains:intellij-fernflower:1.0.0.6"
 }
 
+application {
+    mainClass = 'matcher.Main'
+}
+
 jar {
     manifest {
-        attributes 'Main-Class': 'matcher.Main'
+        attributes 'Main-Class': application.mainClass
     }
 }
 
